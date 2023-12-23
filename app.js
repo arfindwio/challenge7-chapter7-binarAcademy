@@ -44,8 +44,18 @@ app.use((req, res, next) => {
 
 app.use(router);
 
-io.on("connection", (client) => {
-  console.log("connected!");
+io.on("connection", (socket) => {
+  console.log("A user connected");
+
+  socket.on("join", ({ userId }) => {
+    // console.log(`User ${userId} joined`);
+    socket.join(`user-${userId}`);
+    // console.log(socket);
+  });
+
+  socket.on("disconnect", () => {
+    console.log("User disconnected");
+  });
 });
 
 app.use(Sentry.Handlers.errorHandler());
