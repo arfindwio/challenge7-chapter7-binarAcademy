@@ -43,14 +43,14 @@ module.exports = {
         },
       });
 
+      req.io.to(`user-${userId}`).emit("notification", newNotification);
+
       // Send the response to the client
       res.status(201).json({
         status: true,
         message: "OK",
         data: newNotification,
       });
-
-      req.io.emit(`user-${userId}`, newNotification);
     } catch (err) {
       next(err);
     }

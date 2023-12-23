@@ -180,10 +180,10 @@ module.exports = {
             userId: updateUser.id,
           },
         });
-
-        req.flash("msg2", "Your password has been updated successfully!");
-        res.redirect("/login");
       });
+
+      req.flash("msg2", "Your password has been updated successfully!");
+      res.redirect("/login");
     } catch (err) {
       next(err);
     }
