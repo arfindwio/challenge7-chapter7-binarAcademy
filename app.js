@@ -48,9 +48,8 @@ io.on("connection", (socket) => {
   console.log("A user connected");
 
   socket.on("join", ({ userId }) => {
-    // console.log(`User ${userId} joined`);
+    console.log(`User ${userId} joined`);
     socket.join(`user-${userId}`);
-    // console.log(socket);
   });
 
   socket.on("disconnect", () => {
