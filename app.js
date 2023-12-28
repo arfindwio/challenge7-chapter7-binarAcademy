@@ -50,7 +50,6 @@ io.on("connection", (socket) => {
   socket.on("join", ({ userId }) => {
     // console.log(`User ${userId} joined`);
     socket.join(`user-${userId}`);
-    // console.log(socket);
   });
 
   socket.on("disconnect", () => {
